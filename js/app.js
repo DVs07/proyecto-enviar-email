@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function mostrarAlerta(mensaje, referencia){
+    // Comprobar si ya existe una alerta
+    const alerta = referencia.querySelector('.bg-red-600');
+    if(alerta){
+        alerta.remove();
+    }
     // console.log('Hubo un error!!!');
     // Generar alerta de error en HTML
     const error = document.createElement('p');
