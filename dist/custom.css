@@ -1,0 +1,14 @@
+
+button[type="submit"] {
+    background-color: #31d96c;
+    color: rgb(31 41 55);
+}
+:disabled, .btn-locked{
+    cursor: not-allowed !important;
+}
+.spinner{
+    margin: auto;
+}
+.spinner  > div{
+    background-color: #58e88a;
+}
