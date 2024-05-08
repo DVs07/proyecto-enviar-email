@@ -29,10 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     // Funciones
     function validar(e) {
-        //console.log('Capturando datos...');
-        //console.log(e.target.value);
-        // console.log(e.target.id); // ID del input, email, asunto, etc.
-        // console.log(e.target.parentElement);
+        
         if(e.target.value.trim() === '')  { // trim() elimina los espacios en blanco. 
             // console.log('Este campo esta vacio!!!');
             mostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement);
@@ -48,11 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         limpiarAlerta(e.target.parentElement);
-        // console.log('Despues del if');
 
         // Asignar los valores
         email[e.target.name] = e.target.value.trim().toLowerCase(); // Asignar el valor del input al objeto email. 
-        // console.log(email);
 
         // Comprobar el objeto email para validar que todos los campos esten completos.
         comprobarEmail();
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function mostrarAlerta(mensaje, referencia){
         limpiarAlerta(referencia);
         
-        // console.log('Hubo un error!!!');
         // Generar alerta de error en HTML
         const error = document.createElement('p');
         error.textContent = mensaje;
@@ -72,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function limpiarAlerta(referencia){
-        // console.log('Desde limpiar alerta');
+
         // Comprobar si ya existe una alerta
         const alerta = referencia.querySelector('.bg-red-600');
         if(alerta){
@@ -83,13 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function validarEmail(email) {
         const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
         const tester = regex.test(email);
-        // console.log(tester);
+
         return tester;
     }
     
     function comprobarEmail() {
-        // console.log(email);
-        // console.log(Object.values(email).includes(''));
+
         if(Object.values(email).includes('')){
             btnSubmit.classList.add('opacity-50');
             btnSubmit.disabled = true;
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function enviarEmail(e) {
         e.preventDefault();
 
-        // console.log('Enviando Email...');
         spinner.classList.remove('hidden');
 
         setTimeout(() => {
